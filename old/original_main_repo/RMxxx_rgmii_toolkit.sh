@@ -101,7 +101,7 @@ ensure_entware_installed() {
 	remount_rw
     if [ ! -f "/opt/bin/opkg" ]; then
         echo -e "\e[1;32mInstalling Entware/OPKG\e[0m"
-        cd /tmp && wget -O installentware.sh "https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/installentware.sh" && chmod +x installentware.sh && ./installentware.sh
+        cd /tmp && wget -O installentware.sh "https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/installentware.sh" && chmod +x installentware.sh && ./installentware.sh
         if [ "$?" -ne 0 ]; then
             echo -e "\e[1;31mEntware/OPKG installation failed. Please check your internet connection or the repository URL.\e[0m"
             exit 1
@@ -199,17 +199,17 @@ install_update_at_socat() {
 	mkdir $SOCAT_AT_DIR
     cd $SOCAT_AT_DIR
     mkdir $SOCAT_AT_SYSD_DIR
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/socat-armel-static
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/killsmd7bridge
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/atcmd
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/socat-armel-static
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/killsmd7bridge
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/atcmd
     cd $SOCAT_AT_SYSD_DIR
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd11.service
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd11-from-ttyIN.service
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd11-to-ttyIN.service
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-killsmd7bridge.service	
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd7-from-ttyIN2.service
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd7-to-ttyIN2.service
-    wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd7.service
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd11.service
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd11-from-ttyIN.service
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd11-to-ttyIN.service
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-killsmd7bridge.service	
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd7-from-ttyIN2.service
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd7-to-ttyIN2.service
+    wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/socat-at-bridge/systemd_units/socat-smd7.service
 
     # Set execute permissions
     cd $SOCAT_AT_DIR
@@ -256,13 +256,13 @@ install_simple_firewall() {
     mount -o remount,rw /
     mkdir -p "$SIMPLE_FIREWALL_DIR"
     mkdir -p "$SIMPLE_FIREWALL_SYSTEMD_DIR"
-    wget -O "$SIMPLE_FIREWALL_DIR/simplefirewall.sh" https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/simplefirewall.sh
-    wget -O "$SIMPLE_FIREWALL_DIR/ttl-override" https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/ttl-override
-    wget -O "$SIMPLE_FIREWALL_DIR/ttlvalue" https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/ttlvalue
+    wget -O "$SIMPLE_FIREWALL_DIR/simplefirewall.sh" https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/simplefirewall.sh
+    wget -O "$SIMPLE_FIREWALL_DIR/ttl-override" https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/ttl-override
+    wget -O "$SIMPLE_FIREWALL_DIR/ttlvalue" https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/ttlvalue
     chmod +x "$SIMPLE_FIREWALL_DIR/simplefirewall.sh"
     chmod +x "$SIMPLE_FIREWALL_DIR/ttl-override"	
-    wget -O "$SIMPLE_FIREWALL_SYSTEMD_DIR/simplefirewall.service" https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/systemd/simplefirewall.service
-    wget -O "$SIMPLE_FIREWALL_SYSTEMD_DIR/ttl-override.service" https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/systemd/ttl-override.service
+    wget -O "$SIMPLE_FIREWALL_SYSTEMD_DIR/simplefirewall.service" https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/systemd/simplefirewall.service
+    wget -O "$SIMPLE_FIREWALL_SYSTEMD_DIR/ttl-override.service" https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simplefirewall/systemd/ttl-override.service
     cp -rf $SIMPLE_FIREWALL_SYSTEMD_DIR/* /lib/systemd/system
     ln -sf "/lib/systemd/system/simplefirewall.service" "/lib/systemd/system/multi-user.target.wants/"
     ln -sf "/lib/systemd/system/ttl-override.service" "/lib/systemd/system/multi-user.target.wants/"
@@ -391,34 +391,34 @@ install_simple_admin() {
   		mkdir $SIMPLE_ADMIN_DIR/www/css
     		mkdir $SIMPLE_ADMIN_DIR/www/js
                 cd $SIMPLE_ADMIN_DIR/systemd
-                wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/systemd/simpleadmin_generate_status.service
-		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/systemd/simpleadmin_httpd.service
+                wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/systemd/simpleadmin_generate_status.service
+		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/systemd/simpleadmin_httpd.service
   		sleep 1
   		cd $SIMPLE_ADMIN_DIR/scripts
-  		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/scripts/build_modem_status
-    		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/scripts/modemstatus_parse.sh
-      		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/scripts/tojson.sh
+  		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/scripts/build_modem_status
+    		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/scripts/modemstatus_parse.sh
+      		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/scripts/tojson.sh
 		sleep 1
 		cd $SIMPLE_ADMIN_DIR/www
-		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/atcommander.html
-  		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/index.html
-    		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/speedtest.html
-      		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/styles.css
-		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/ttl.html
-  		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/bandlock.html
+		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/atcommander.html
+  		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/index.html
+    		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/speedtest.html
+      		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/styles.css
+		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/ttl.html
+  		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/bandlock.html
   		sleep 1
   		cd $SIMPLE_ADMIN_DIR/www/js
-  		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/js/alpinejs.min.js
+  		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/js/alpinejs.min.js
     		sleep 1
     		cd $SIMPLE_ADMIN_DIR/www/css
-    		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/css/admin.css
-      		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/css/bulma.css
+    		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/css/admin.css
+      		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/css/bulma.css
 		sleep 1
 		cd $SIMPLE_ADMIN_DIR/www/cgi-bin
-		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/cgi-bin/get_atcommand
-  		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/cgi-bin/get_csq
-    		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/cgi-bin/get_ttl_status
-      		wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/cgi-bin/set_ttl
+		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/cgi-bin/get_atcommand
+  		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/cgi-bin/get_csq
+    		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/cgi-bin/get_ttl_status
+      		wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/simpleadmin/www/cgi-bin/set_ttl
 		sleep 1
   		cd /
                 chmod +x $SIMPLE_ADMIN_DIR/scripts/*
@@ -591,8 +591,8 @@ install_update_remove_tailscale() {
 	rm -rf /usrdata/tailscale_1.62.1_arm
     	echo "Downloading systemd files..."
      	cd $TAILSCALE_SYSD_DIR
-      	wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscaled.service
-       	wget https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscaled.defaults
+      	wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscaled.service
+       	wget https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscaled.defaults
 	sleep 2s
 	echo "Setting Permissions..."
         chmod +x /usrdata/tailscale/tailscaled
@@ -627,8 +627,8 @@ configure_tailscale() {
         1)
 	remount_rw
 	cd /lib/systemd/system/
-	wget -O tailscale-webui.service https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscale-webui.service
-  	wget -O tailscale-webui-trigger.service https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscale-webui-trigger.service
+	wget -O tailscale-webui.service https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscale-webui.service
+  	wget -O tailscale-webui-trigger.service https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscale-webui-trigger.service
      	ln -sf /lib/systemd/system/tailscale-webui-trigger.service /lib/systemd/system/multi-user.target.wants/
      	systemctl daemon-reload
        	echo "Tailscale Web UI Enabled"
@@ -886,8 +886,8 @@ install_ttyd() {
     mkdir -p /usrdata/ttyd/scripts /usrdata/ttyd/systemd
     cd /usrdata/ttyd/
     wget -O ttyd https://github.com/tsl0922/ttyd/releases/download/1.7.4/ttyd.armhf && chmod +x ttyd
-    wget -O scripts/ttyd.bash "https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/ttyd/scripts/ttyd.bash" && chmod +x scripts/ttyd.bash
-    wget -O systemd/ttyd.service "https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/ttyd/systemd/ttyd.service"
+    wget -O scripts/ttyd.bash "https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/ttyd/scripts/ttyd.bash" && chmod +x scripts/ttyd.bash
+    wget -O systemd/ttyd.service "https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/ttyd/systemd/ttyd.service"
     cp systemd/ttyd.service /lib/systemd/system/
     ln -sf /usrdata/ttyd/ttyd /bin
     
@@ -1021,7 +1021,7 @@ echo "                                           :+##+.            "
             ;;	    
         7) 
 	    echo -e "\e[1;32mInstalling Entware/OPKG\e[0m"
-	    cd /tmp && wget -O installentware.sh https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/installentware.sh && chmod +x installentware.sh && ./installentware.sh && cd /
+	    cd /tmp && wget -O installentware.sh https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/installentware.sh && chmod +x installentware.sh && ./installentware.sh && cd /
             ;;
 	8)  
  	    install_ttyd
@@ -1031,7 +1031,7 @@ echo "                                           :+##+.            "
 			# Check for existing Entware/opkg installation, install if not installed
 			if [ ! -f "/opt/bin/opkg" ]; then
 				echo -e "\e[1;32mInstalling Entware/OPKG\e[0m"
-				cd /tmp && wget -O installentware.sh "https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/installentware.sh" && chmod +x installentware.sh && ./installentware.sh
+				cd /tmp && wget -O installentware.sh "https://raw.gitmirror.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/installentware.sh" && chmod +x installentware.sh && ./installentware.sh
 				if [ "$?" -ne 0 ]; then
 					echo -e "\e[1;31mEntware/OPKG installation failed. Please check your internet connection or the repository URL.\e[0m"
 					exit 1
